@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Build a Library with JavaScript Classes</title>
+    </head>
+    <body>
+        <script>
+            class Media {
+                constructor(title) {
+                    this._title = title;
+                    this._isCheckedOut = false;
+                    this._ratings = [];
+                }
+
+                get title() {
+                    return this._title;
+                }
+
+                get averageRating() {
+
+                    let totalRating = this._ratings.reduce((currentSum, rating) => {
+                        return currentSum + rating;
+                    });
+
+                    let average = Math.floor(totalRating/this._ratings.length);
+
+                    return average;
+                }
+
+                get ratings() {
+                    return this._ratings;
+                }
+
+                set isCheckedOut(checkedOut) {
+
+                    this._isCheckedOut = checkedOut;
+                }
+                
+                toggleCheckOutStatus() {
+
+                    if (!this._isCheckedOut) {
+
+                        return true;
+
+                    } else {
+
+                        return false;
+                    }
+                }
+
+                addRating(rating) {
+
+                    if (rating >= 0 && rating <= 10) {
+                        this._ratings.push(rating);
+
+                    } else {
+                        console.log(`Error: rating must be between 0 and 10`);
+                    }
+                }
+            }
+
+            class Book extends Media {
+                constructor(title, author, pages) {
+                    super(title);
+                    this._author = author;
+                    this._pages = pages;
+                }
+
+                get author() {
+                    return this._author;
+                }
+
+                get pages() {
+                    return this._pages;
+                }
+                
+            }
+
+            class Movie extends Media {
+                constructor(title, director, runTime) {
+                    super(title);
+                    this._director = director;
+                    this._runTime = runTime;
+                }
+
+                get director() {
+                    return this._director;
+                }
+
+                get runTime() {
+                    return this._runTime;
+                }
+            }
+
+            class CD extends Media {
+                constructor(title, artist, songs){
+                    super(title);
+                    this._artist = artist;
+                    this._songs = songs;
+                }
+
+                get artist() {
+                    return this._artist;
+                }
+
+                get songs() {
+                    return this._songs;
+                }
+
+                shuffle(cdSong) {
+                
+                    let randomSong = Math.floor(Math.random() * cdSong.length);
+
+                    return cdSong[randomSong];
+                }
+            }
+
+            const goldFinch = new Book("The Goldfinch", "Donna Tartt", 800);
+
+            const theFanatic = new Movie("The Fanatic", "Fred Durst", 85);
+
+            const artpop = new CD("Artpop", "Lady Gaga", ["Aura", "Venus", "G.U.Y", "Sexxx Dreams", "Jewels N' Drugs", "MANiCURE", "ARTPOP", "Swine", "Donatella", "Fashion", "Mary Jane Holland", "Dope", "Gypsy", "Applause"]);
+
+            goldFinch.addRating(9);
+
+            goldFinch.addRating(5);
+
+            goldFinch.addRating(2);
+
+            theFanatic.addRating(3);
+
+            theFanatic.addRating(4);
+
+            theFanatic.addRating(5);
+
+            artpop.addRating(9);
+
+            artpop.addRating(10);
+
+            artpop.addRating(8);
+
+            console.log(goldFinch.toggleCheckOutStatus())
+        
+            console.log(`${goldFinch.title} is a book by ${goldFinch.author}. It is ${goldFinch.pages} pages long. It has an average rating of ${goldFinch.averageRating} out of 10.`);
+
+            console.log(`${theFanatic.title} is a film directed by ${theFanatic.director}. It has a run time of ${theFanatic.runTime} minutes and an average rating of ${theFanatic.averageRating} out of 10.`);
+
+            console.log(`${artpop._title} is the third studio album released by ${artpop.artist}. It comprises ${artpop.songs.length} songs, including the critically acclaimed ${artpop.songs[13]}. It has an average critics rating of ${artpop.averageRating} out of 10. To get a flavour of the songs on this CD, you should listen to ${artpop.shuffle(artpop.songs)}.`)
+
+        </script>
+    </body>
+</html>

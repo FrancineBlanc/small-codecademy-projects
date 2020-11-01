@@ -1,0 +1,108 @@
+abody {
+    margin: 0;
+    font-size: 16px;
+    background-color: #E4E3DE;
+}
+
+#container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+h1 {
+    font-family: 'Krub', sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    color: #913234;
+}
+
+ul {
+    list-style-type: none;
+    font-family: 'Lora', serif;
+    font-size: 1.5rem;
+}
+
+li a {
+    text-decoration: none;
+    float: left;
+    color: #B95340;
+}
+
+li a:hover {
+    border-bottom: 2px solid #B95340;
+}
+
+.mission {
+    display: flex;
+    height: 350px;
+    background-image: url("./Assets/background.jpg");
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-family: 'Krub', sans-serif;
+    color: #B95340;
+    background-color: rgba(255, 255, 255, 0.5);
+    flex-direction: column;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pictures {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+img {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+.team-container {
+    display: flex;
+    height: 500px;
+    background-image: url("./Assets/teambackground.jpg");
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.teampic {
+    height: 300px;
+}
+
+.team-container h3, .team-container p {
+    font-family: 'Krub', sans-serif; 
+    color: #E4E3DE;
+    text-align: center;
+}
+
+h1 ~ p {
+    font-family: 'Krub', sans-serif;
+    color: #B95340;
+    font-weight: bold;
+    text-align: center;
+}
+
